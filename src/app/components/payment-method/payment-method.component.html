@@ -1,0 +1,74 @@
+
+
+<div class="stepsdemo-content">
+  <p-card>
+    <ng-template pTemplate="title"> Payment Information </ng-template>
+    <ng-template pTemplate="subtitle"> Enter your card details </ng-template>
+    <ng-template pTemplate="content">
+      <form [formGroup]="formPayment">
+        <div class="p-fluid formgrid grid">
+          <div class="field col-12">
+            <label for="class">Nombre del titular de la tarjeta</label>
+            <input type="text" required pInputText formControlName="cardholderName" />
+          </div>
+          <div class="row">
+            <div class="field col-8">
+              <label id="number" for="lastname">Número</label>
+              <p-inputMask
+                inputId="number"
+                mask="9999-9999-9999-9999"
+                formControlName="cardholderNumber"
+
+              ></p-inputMask>
+            </div>
+            <div class="field col-4">
+              <label id="date" for="date">Fecha</label>
+              <p-inputMask
+                inputId="date"
+                mask="99/99"
+                formControlName="date"
+
+              ></p-inputMask>
+            </div>
+          </div>
+
+          <div class="field col-2">
+            <label for="cvv">CVV</label>
+            <p-inputMask id="cvv" mask="999"
+            formControlName="cvv"
+            ></p-inputMask>
+          </div>
+          <div class="field-checkbox col-12">
+            <p-checkbox
+              id="remember"
+              [binary]="true"
+              formControlName="remember"
+            ></p-checkbox>
+            <label for="remember" class="p-checkbox-label"
+              >Save credit card information for future</label
+            >
+          </div>
+        </div>
+      </form>
+
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+      <div class="justify-content-between" style="display: flex;">
+        <p-button
+          label="Back"
+          (onClick)="sendInfoPayment()"
+          icon="pi pi-angle-left"
+        ></p-button>
+        <p-button
+          label="Next"
+          (onClick)="sendInfoPayment()"
+          icon="pi pi-angle-right"
+          iconPos="right"
+        ></p-button>
+      </div>
+    </ng-template>
+
+  </p-card>
+</div>
+
