@@ -19,4 +19,5 @@ export const environment = {
   title: 'Default Environment',
   nameCollection: 'product',
   nameCollectionPayment: 'payment',
+  nameCollectionUser: 'users',
 };

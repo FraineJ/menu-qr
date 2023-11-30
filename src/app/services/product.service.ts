@@ -42,6 +42,17 @@ export class ProductService {
     return addDoc(shopInfoRef, data);
   }
 
+  async saveInfoUser(
+    infoUser: any
+  ): Promise<DocumentReference<DocumentData>> {
+    const shopInfoRef = collection(
+      this.firestore,
+      environment.nameCollectionUser
+    );
+    const data = { infoUser };
+    return addDoc(shopInfoRef, data);
+  }
+
   async getProducts(): Promise<any> {
     const startDate = new Date();
     startDate.setHours(0, 0, 0, 0);

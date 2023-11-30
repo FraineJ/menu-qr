@@ -1,5 +1,3 @@
-
-
 <div class="stepsdemo-content">
   <p-card>
     <ng-template pTemplate="title"> Payment Information </ng-template>
@@ -9,7 +7,12 @@
         <div class="p-fluid formgrid grid">
           <div class="field col-12">
             <label for="class">Nombre del titular de la tarjeta</label>
-            <input type="text" required pInputText formControlName="cardholderName" />
+            <input
+              type="text"
+              required
+              pInputText
+              formControlName="cardholderName"
+            />
           </div>
           <div class="row">
             <div class="field col-8">
@@ -18,7 +21,6 @@
                 inputId="number"
                 mask="9999-9999-9999-9999"
                 formControlName="cardholderNumber"
-
               ></p-inputMask>
             </div>
             <div class="field col-4">
@@ -27,15 +29,16 @@
                 inputId="date"
                 mask="99/99"
                 formControlName="date"
-
               ></p-inputMask>
             </div>
           </div>
 
           <div class="field col-2">
             <label for="cvv">CVV</label>
-            <p-inputMask id="cvv" mask="999"
-            formControlName="cvv"
+            <p-inputMask
+              id="cvv"
+              mask="999"
+              formControlName="cvv"
             ></p-inputMask>
           </div>
           <div class="field-checkbox col-12">
@@ -50,25 +53,17 @@
           </div>
         </div>
       </form>
-
     </ng-template>
 
     <ng-template pTemplate="footer">
-      <div class="justify-content-between" style="display: flex;">
+      <div class="justify-content-end" style="display: flex">
         <p-button
-          label="Back"
-          (onClick)="sendInfoPayment()"
-          icon="pi pi-angle-left"
-        ></p-button>
-        <p-button
-          label="Next"
+          label="Siguiente"
           (onClick)="sendInfoPayment()"
           icon="pi pi-angle-right"
           iconPos="right"
         ></p-button>
       </div>
     </ng-template>
-
   </p-card>
 </div>
-

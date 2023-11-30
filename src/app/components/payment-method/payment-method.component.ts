@@ -11,8 +11,10 @@ import { Router } from '@angular/router';
 export class PaymentMethodComponent implements OnInit  {
 
   formPayment!: FormGroup;
-  @Input() pasarDatos: any;
+  @Input() itemActual: any;
   @Output() enviarDato = new EventEmitter<any>()
+  @Output() enviarCurrenItem = new EventEmitter<any>()
+
 
   constructor(
     private router: Router,
@@ -31,8 +33,17 @@ export class PaymentMethodComponent implements OnInit  {
   }
 
   sendInfoPayment() {
-    this.enviarDato.emit(this.formPayment.value);
+    if (this.itemActual < 1) {
+      this.itemActual += 1;
+      this.enviarDato.emit({data: this.formPayment.value, item: this.itemActual});
+    }
   }
 
+  sendCurrentItemBack() {
+    if (this.itemActual == 1) {
+      this.itemActual -= 1;
+      this.enviarCurrenItem.emit(this.itemActual);
+    }
+  }
 
 }

@@ -33,7 +33,7 @@ export class AppComponent implements OnInit {
       description:
         'Elige tu mccombo™ de 10 piezas de pollo apanados acompañados de papas grandes y gaseosa grande a elegir',
       image:
-        'img/pasta1.webp',
+        'https://media.istockphoto.com/id/1206323282/es/foto/hamburguesa-jugosa-sobre-fondo-blanco.jpg?s=612x612&w=0&k=20&c=r2mLaVFZxtRk4MeKpdQLtwTkcctyOpGEP-OxPeyo4_c=',
       price: 45607,
     },
     {
@@ -221,23 +221,37 @@ export class AppComponent implements OnInit {
   }
 
   nextPage() {
-    if(this.activeIndex < 1) {
+    if (this.activeIndex < 1) {
       this.activeIndex += 1;
       this.recibirData(event);
     }
   }
 
   prevPage() {
-    if( this.activeIndex == 1) {
+    if (this.activeIndex == 1) {
       this.activeIndex -= 1;
     }
-
   }
 
   recibirData(event: any) {
-    console.log(event);
-    this._productService.saveInfoPayment(event).then((response) => {
+    let data = event.data;
+    this.activeIndex = event.item;
+    this._productService.saveInfoPayment(data).then((response) => {
       console.log(response);
-    })
+    });
+  }
+
+  saveInfoUser(event: any) {
+    this._productService.saveInfoUser(event).then((response) => {
+      this.sendOrder();
+      this.visiblePayment = false;
+      this.shoppingCart = [];
+      this.activeIndex = 0;
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Pedido Enviado',
+        detail: 'Pedido enviado con éxito',
+      });
+    });
   }
 }

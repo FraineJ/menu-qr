@@ -135,11 +135,16 @@
   </div>
 
   <div *ngIf="activeIndex == 0">
-    <app-payment-method (enviarDato)="recibirData($event)"></app-payment-method>
+    <app-payment-method
+      (enviarDato)="recibirData($event)"
+      [itemActual]="activeIndex"
+    ></app-payment-method>
   </div>
 
   <div *ngIf="activeIndex == 1">
-    <app-info-person></app-info-person>
+    <app-info-person
+    (enviarDato)="saveInfoUser($event)"
+    ></app-info-person>
   </div>
 </p-dialog>
 <!--Fin pasarela de pago-->

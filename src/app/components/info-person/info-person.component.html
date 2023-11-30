@@ -1,41 +1,60 @@
 <div class="stepsdemo-content">
   <p-card>
-    <ng-template pTemplate="title"> personal information </ng-template>
-    <ng-template pTemplate="subtitle"> Enter your personal information </ng-template>
+    <ng-template pTemplate="title">Información Personal </ng-template>
+    <ng-template pTemplate="subtitle">
+      Ingrese su información personal
+    </ng-template>
     <ng-template pTemplate="content">
       <div class="p-fluid formgrid grid">
-        <div class="row">
-          <div class="field col-lg-6 col-md-6 col-sm-12">
-            <label for="class"> Name </label>
-            <input
-              type="text"
-              required
-              pInputText
-              [(ngModel)]="cardholderName"
-            />
+        <form [formGroup]="formInfoUser">
+          <div class="row">
+            <div class="field col-lg-6 col-md-6 col-sm-12">
+              <label for="class"> Nombre </label>
+              <input type="text" required pInputText formControlName="name" />
+            </div>
+            <div class="field col-lg-6 col-md-6 col-sm-12">
+              <label for="class">Apellidos </label>
+              <input
+                type="text"
+                required
+                pInputText
+                formControlName="lastName"
+              />
+            </div>
           </div>
-          <div class="field col-lg-6 col-md-6 col-sm-12">
-            <label for="class"> last name </label>
-            <input
-              type="text"
-              required
-              pInputText
-              [(ngModel)]="cardholderlastName"
-            />
-          </div>
-        </div>
 
-        <div class="field col-12">
-          <label  for="lastname"> e-mail </label>
-          <input type="email" required pInputText [(ngModel)]="email" />
-        </div>
-
-        <div class="row">
           <div class="field col-12">
-            <label id="number" for="lastname">Billing address</label>
-            <input type="text" required pInputText [(ngModel)]="address" />
+            <label for="lastname">Correo </label>
+            <input type="email" required pInputText formControlName="email" />
           </div>
-        </div>
+
+          <div class="row">
+            <div class="field col-12">
+              <label id="number" for="lastname">Dirección</label>
+              <input
+                type="text"
+                required
+                pInputText
+                formControlName="address"
+              />
+            </div>
+          </div>
+        </form>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="footer">
+      <div class="justify-content-between" style="display: flex">
+        <p-button
+          label="Atrás"
+          (onClick)="sendInfoPayment()"
+          icon="pi pi-angle-left"
+        ></p-button>
+        <p-button
+          label="Enviar pedido"
+          (onClick)="sendInfoPayment()"
+          icon="pi pi-angle-right"
+          iconPos="right"
+        ></p-button>
       </div>
     </ng-template>
   </p-card>
