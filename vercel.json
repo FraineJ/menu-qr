@@ -1,6 +1,6 @@
 {
   "build": {
-    "command": "npm run build",
+    "buildCommand": "npm run build",
     "base": "/",
     "functions": "functions"
   }
