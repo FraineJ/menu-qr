@@ -9,22 +9,20 @@ import { TruncateTextPipe } from './pipe/textShor.pipe';
 import { PrimeNgModule } from './prime-ng/prime-ng.module';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import * as firebase from 'firebase/app';
-import { environment } from 'src/environment/enviroment.dev';
+import { environment } from 'src/environment/environment.dev';
 import { provideStorage, getStorage } from '@angular/fire/storage';
-import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PaymentMethodComponent } from './components/payment-method/payment-method.component';
 import { ComponentsModule } from './components/components.module';
 import { StepsModule } from 'primeng/steps';
 
-
-
 firebase.initializeApp(environment.firebase);
-
 
 @NgModule({
   declarations: [AppComponent, TruncateTextPipe, ProductDetailComponent],
-  imports: [BrowserModule,
+  imports: [
+    BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     PrimeNgModule,
@@ -35,11 +33,8 @@ firebase.initializeApp(environment.firebase);
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-
   ],
-  exports: [
-
-  ],
+  exports: [],
   providers: [],
   bootstrap: [AppComponent],
 })

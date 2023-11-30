@@ -48,8 +48,8 @@
               ],
               "fileReplacements": [
                 {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.dev.ts"
+                  "replace": "src/environment/environment.ts",
+                  "with": "src/environment/environment.dev.ts"
                 }
               ],
               "buildOptimizer": false,
@@ -60,7 +60,7 @@
               "namedChunks": true,
               "outputHashing": "all"
             },
-            "development": {
+            "dev": {
               "budgets": [
                 {
                   "type": "initial",
@@ -75,8 +75,8 @@
               ],
               "fileReplacements": [
                 {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.dev.ts"
+                  "replace": "src/environment/environment.ts",
+                  "with": "src/environment/environment.dev.ts"
                 }
               ],
               "buildOptimizer": false,
@@ -96,11 +96,11 @@
             "production": {
               "browserTarget": "menu-restaurant:build:production"
             },
-            "development": {
-              "browserTarget": "menu-restaurant:build:development"
+            "dev": {
+              "browserTarget": "menu-restaurant:build:dev"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "dev"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
