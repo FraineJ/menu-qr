@@ -1,7 +1,0 @@
-{
-  "build": {
-    "buildCommand": "npm run build",
-    "base": "/",
-    "functions": "functions"
-  }
-}
