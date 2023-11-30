@@ -1,0 +1,7 @@
+{
+  "build": {
+    "base": "/",
+    "functions": "functions",
+    "public": "public"
+  }
+}

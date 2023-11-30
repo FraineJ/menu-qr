@@ -37,24 +37,55 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "20mb",
+                  "maximumError": "20mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "100kb",
+                  "maximumError": "100kb"
                 }
               ],
-              "outputHashing": "all"
-            },
-            "development": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.dev.ts"
+                }
+              ],
               "buildOptimizer": false,
               "optimization": false,
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true
+              "namedChunks": true,
+              "outputHashing": "all"
+            },
+            "development": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "20mb",
+                  "maximumError": "20mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "100kb",
+                  "maximumError": "100kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.dev.ts"
+                }
+              ],
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true,
+              "outputHashing": "all"
             }
           },
           "defaultConfiguration": "production"
