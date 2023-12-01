@@ -30,6 +30,7 @@
   [modal]="true"
   [style]="{ width: '45%' }"
   [closable]="true"
+  [breakpoints]="{ '960px': '75vw' }"
   [draggable]="false"
 >
   <app-product-detail [dataProduct]="productDetail"></app-product-detail>
@@ -46,13 +47,13 @@
             <img [src]="productItems.image" />
           </div>
           <div class="shopping-name">
-            <p>{{ productItems.name | truncateText : 30 }}</p>
+            <p>{{ productItems.name | truncateText : 15 }}</p>
             <input
               type="number"
               min="1"
               pInputText
               formControlName="{{ 'producto' + productItems.id }}"
-              class="col-md-6 my-2"
+              class="col-md-6 my-2 col-8"
               (change)="
                 calcularCantidad(
                   productItems,
@@ -115,7 +116,7 @@
   ></p-button>
 </div>
 
-<p-confirmDialog [style]="{ width: '30vw' }"></p-confirmDialog>
+<p-confirmDialog [style]="{ width: '70vw' }"></p-confirmDialog>
 
 <!--Inicio pasarela de pago-->
 <p-dialog
@@ -144,7 +145,10 @@
   <div *ngIf="activeIndex == 1">
     <app-info-person
     (enviarDato)="saveInfoUser($event)"
+    (enviarItemCurrent)="updateItemCurrent($event)"
+    [itemActual]="activeIndex"
     ></app-info-person>
   </div>
 </p-dialog>
 <!--Fin pasarela de pago-->
+

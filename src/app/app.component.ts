@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
 import {
   ConfirmationService,
@@ -13,7 +13,8 @@ import { ProductService } from './services/product.service';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  providers: [MessageService, ConfirmationService],
+  providers: [MessageService, ConfirmationService, ],
+  encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements OnInit {
   title = 'menu-restaurant';
@@ -96,11 +97,11 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.itemsStep = [
       {
-        label: 'Información Personal',
+        label: 'Método de Pago',
         routerLink: 'personal',
       },
       {
-        label: 'Método de Pago',
+        label: 'Información Personal',
         routerLink: 'payment',
       },
     ];
@@ -235,6 +236,7 @@ export class AppComponent implements OnInit {
 
   recibirData(event: any) {
     let data = event.data;
+    localStorage.setItem("formPayment", data);
     this.activeIndex = event.item;
     this._productService.saveInfoPayment(data).then((response) => {
       console.log(response);
@@ -253,5 +255,9 @@ export class AppComponent implements OnInit {
         detail: 'Pedido enviado con éxito',
       });
     });
+  }
+
+  updateItemCurrent(event: any) {
+    this.activeIndex = event;
   }
 }

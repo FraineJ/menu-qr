@@ -12,6 +12,8 @@ export class InfoPersonComponent implements OnInit {
   formInfoUser!: FormGroup;
   @Input() itemActual = 0;
   @Output() enviarDato = new EventEmitter<any>();
+  @Output() enviarItemCurrent = new EventEmitter<any>();
+
 
   constructor(private router: Router, private formBuilder: FormBuilder) {}
 
@@ -19,7 +21,7 @@ export class InfoPersonComponent implements OnInit {
     this.formInfoUser = this.formBuilder.group({
       name: ['', Validators.required],
       lastName: [''],
-      email: [0, Validators.required],
+      email: ['',Validators.required],
       address: ['', Validators.required]
     });
   }
@@ -28,6 +30,13 @@ export class InfoPersonComponent implements OnInit {
     if (this.itemActual < 1) {
       this.itemActual += 1;
       this.enviarDato.emit(this.formInfoUser.value);
+    }
+  }
+
+  backStep() {
+    if (this.itemActual == 1) {
+      this.itemActual -= 1;
+      this.enviarItemCurrent.emit(this.itemActual);
     }
   }
 

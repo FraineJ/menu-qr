@@ -13,43 +13,56 @@
               pInputText
               formControlName="cardholderName"
             />
+            <div
+              *ngIf="formPayment.get('cardholderName')?.touched && formPayment.get('cardholderName')?.errors?.['required']"
+              class="alert alert-danger"
+            >
+              this fiel is required
+            </div>
           </div>
           <div class="row">
-            <div class="field col-8">
+            <div class="field col-sm-12 col-md-8">
               <label id="number" for="lastname">Número</label>
               <p-inputMask
                 inputId="number"
                 mask="9999-9999-9999-9999"
                 formControlName="cardholderNumber"
               ></p-inputMask>
+              <div
+                *ngIf="formPayment.get('cardholderNumber')?.touched && formPayment.get('cardholderNumber')?.errors?.['required']"
+                class="alert alert-danger"
+              >
+                this fiel is required
+              </div>
             </div>
-            <div class="field col-4">
+            <div class="field col-6 col-md-4">
               <label id="date" for="date">Fecha</label>
               <p-inputMask
                 inputId="date"
                 mask="99/99"
                 formControlName="date"
               ></p-inputMask>
+              <div
+                *ngIf="formPayment.get('date')?.touched && formPayment.get('date')?.errors?.['required']"
+                class="alert alert-danger"
+              >
+                this fiel is required
+              </div>
             </div>
-          </div>
-
-          <div class="field col-2">
-            <label for="cvv">CVV</label>
-            <p-inputMask
-              id="cvv"
-              mask="999"
-              formControlName="cvv"
-            ></p-inputMask>
-          </div>
-          <div class="field-checkbox col-12">
-            <p-checkbox
-              id="remember"
-              [binary]="true"
-              formControlName="remember"
-            ></p-checkbox>
-            <label for="remember" class="p-checkbox-label"
-              >Save credit card information for future</label
-            >
+            <div class="field col-6">
+              <label for="cvv">CVV</label>
+              <p-inputMask
+                id="cvv"
+                mask="999"
+                formControlName="cvv"
+              ></p-inputMask>
+              <div
+                *ngIf="formPayment.get('cvv')?.touched && formPayment.get('cvv')?.errors?.['required']"
+                class="alert alert-danger"
+              >
+                this fiel is required
+              </div>
+            </div>
           </div>
         </div>
       </form>
@@ -59,7 +72,7 @@
       <div class="justify-content-end" style="display: flex">
         <p-button
           label="Siguiente"
-          (onClick)="sendInfoPayment()"
+          (onClick)="validateForm()"
           icon="pi pi-angle-right"
           iconPos="right"
         ></p-button>
@@ -67,3 +80,5 @@
     </ng-template>
   </p-card>
 </div>
+
+<p-toast></p-toast>

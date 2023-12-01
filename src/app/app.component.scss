@@ -81,6 +81,7 @@
 
 .card-shopping-cart {
   display: flex;
+  padding-bottom: 2px;
   .product-info {
     margin: 0;
   }
@@ -133,18 +134,16 @@
   }
 }
 
-
-.customstepper .ui-state-highlight{
+.customstepper .ui-state-highlight {
   position: relative;
   display: flex;
   justify-content: center;
   flex: 1 1 auto;
   padding-bottom: 33px;
   .p-steps .p-steps-item .p-menuitem-link .p-steps-title {
-      margin-top: 0;
-      color: #6c757d;
+    margin-top: 0;
+    color: #6c757d;
   }
-
 }
 
 .customstepper .p-steps .p-steps-item .p-menuitem-link {
@@ -159,3 +158,4 @@
   color: #6c757d;
   padding: 0 10px 5px;
 }
+
