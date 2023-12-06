@@ -11,6 +11,12 @@
             <div class="field col-lg-6 col-md-6 col-sm-12">
               <label for="class"> Nombre </label>
               <input type="text" required pInputText formControlName="name" />
+              <div
+                *ngIf="formInfoUser.get('name')?.touched && formInfoUser.get('name')?.errors?.['required']"
+                class="alert alert-danger"
+              >
+                this fiel is required
+              </div>
             </div>
             <div class="field col-lg-6 col-md-6 col-sm-12">
               <label for="class">Apellidos </label>
@@ -20,12 +26,24 @@
                 pInputText
                 formControlName="lastName"
               />
+              <div
+                *ngIf="formInfoUser.get('lastName')?.touched && formInfoUser.get('lastName')?.errors?.['required']"
+                class="alert alert-danger"
+              >
+                this fiel is required
+              </div>
             </div>
           </div>
 
           <div class="field col-12">
             <label for="lastname">Correo</label>
             <input type="email" required pInputText formControlName="email" />
+            <div
+                *ngIf="formInfoUser.get('email')?.touched && formInfoUser.get('email')?.errors?.['required']"
+                class="alert alert-danger"
+              >
+                this fiel is required
+            </div>
           </div>
 
           <div class="row">
@@ -37,6 +55,12 @@
                 pInputText
                 formControlName="address"
               />
+              <div
+                *ngIf="formInfoUser.get('address')?.touched && formInfoUser.get('address')?.errors?.['required']"
+                class="alert alert-danger"
+              >
+                this fiel is required
+              </div>
             </div>
           </div>
         </form>
@@ -51,7 +75,7 @@
         ></p-button>
         <p-button
           label="Enviar"
-          (onClick)="sendInfoPayment()"
+          (onClick)="validateForm()"
           icon="pi pi-angle-right"
           iconPos="right"
         ></p-button>

@@ -16,6 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PaymentMethodComponent } from './components/payment-method/payment-method.component';
 import { ComponentsModule } from './components/components.module';
 import { StepsModule } from 'primeng/steps';
+import { BadgeModule } from 'primeng/badge';
 
 firebase.initializeApp(environment.firebase);
 
@@ -30,6 +31,7 @@ firebase.initializeApp(environment.firebase);
     ReactiveFormsModule,
     ComponentsModule,
     StepsModule,
+    BadgeModule,
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),
     provideFirebaseApp(() => initializeApp(environment.firebase)),

@@ -27,8 +27,7 @@ export class ProductService {
 
   async createOrder(order: any): Promise<DocumentReference<DocumentData>> {
     const shopInfoRef = collection(this.firestore, environment.nameCollection);
-    const data = { order };
-    return addDoc(shopInfoRef, data);
+    return addDoc(shopInfoRef, order);
   }
 
   async saveInfoPayment(

@@ -11,14 +11,19 @@ import { InputSwitchModule } from 'primeng/inputswitch';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { InputTextareaModule } from 'primeng/inputtextarea';
+import { DividerModule  } from 'primeng/divider'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InfoPersonComponent } from './info-person/info-person.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
   declarations: [
     PaymentMethodComponent,
-    InfoPersonComponent
+    InfoPersonComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
@@ -32,11 +37,14 @@ import { InfoPersonComponent } from './info-person/info-person.component';
     InputNumberModule,
     InputTextareaModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DividerModule
   ],
   exports: [
     PaymentMethodComponent,
-    InfoPersonComponent
+    InfoPersonComponent,
+    HeaderComponent,
+    FooterComponent
   ]
 })
 export class ComponentsModule { }

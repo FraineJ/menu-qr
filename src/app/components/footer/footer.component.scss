@@ -1,0 +1,28 @@
+footer {
+  background-color: #c3c3c3;
+  color: #000;
+  text-align: center;
+  padding: 10px;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-content {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* Estilos adicionales para hacer el footer más atractivo visualmente */
+footer p {
+  margin: 0;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}

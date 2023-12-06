@@ -13,8 +13,8 @@ import { ProductService } from './services/product.service';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  providers: [MessageService, ConfirmationService, ],
-  encapsulation: ViewEncapsulation.None
+  providers: [MessageService, ConfirmationService],
+  encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent implements OnInit {
   title = 'menu-restaurant';
@@ -30,58 +30,112 @@ export class AppComponent implements OnInit {
   menus = [
     {
       id: 1,
-      name: 'Chicken McNuggets 4 un',
+      name: 'Ensalada de lechuga',
       description:
-        'Elige tu mccombo™ de 10 piezas de pollo apanados acompañados de papas grandes y gaseosa grande a elegir',
-      image:
-        'https://media.istockphoto.com/id/1206323282/es/foto/hamburguesa-jugosa-sobre-fondo-blanco.jpg?s=612x612&w=0&k=20&c=r2mLaVFZxtRk4MeKpdQLtwTkcctyOpGEP-OxPeyo4_c=',
-      price: 45607,
+        'Exquisita ensalada fresca con una base de lechuga crujiente, acompañada de jugosos tomates, cebolla tierna para un toque de dulzura y un aliño perfecto de aceite de oliva virgen y vinagre de vino blanco que realza los sabores de cada ingrediente, creando una combinación deliciosa y saludable.',
+      image: '../assets/img/ensalada_1.jpg',
+      price: 15000,
     },
     {
       id: 2,
-      name: 'Mccombo Grande Mcnifica',
+      name: 'Ensalada de tomate',
       description:
-        'Elige tu mccombo™ de hamburguesa con carne de res de 125gr, queso cheddar, lechuga, tomate, cebolla, salsa de tomate, mayonesa y mostaza con papas grandes y gaseosa grande a elegir',
+        'Una cautivadora ensalada de tomate que fusiona la intensidad del pimiento rojo, la frescura de los tomates cherry y la sofisticación de las hojas de rúcula. Complementada con la suavidad de la cebolla blanca, realzada por la armoniosa combinación de vinagre balsámico y aceite de oliva, esta creación culinaria se completa con la textura crujiente de las almendras, ofreciendo una experiencia gastronómica vibrante y llena de matices.',
       image:
-        'https://media.istockphoto.com/id/1206323282/es/foto/hamburguesa-jugosa-sobre-fondo-blanco.jpg?s=612x612&w=0&k=20&c=r2mLaVFZxtRk4MeKpdQLtwTkcctyOpGEP-OxPeyo4_c=',
-      price: 45607,
+        '../assets/img/ensalada_2.jpg',
+      price: 25000,
     },
     {
       id: 3,
-      name: 'Mccombo Grande Mcbacon',
+      name: 'Ensalada de frijoles',
       description:
-        'Elige tu mccombo™ de hamburguesa con dos carnes de res de 50gr c/u, tocineta, queso cheddar, cebolla, salsa de tomate y mostaza con papas grandes y gaseosa grande a elegir',
+        'Una ensalada de frijoles que despierta el paladar con una combinación exquisita de frijoles, garbanzos, habichuelas coloradas, pepinos frescos, pimientos vibrantes y la frescura aromática del cilantro. Esta explosión de sabores y texturas se une en una sinfonía deliciosa, donde la cremosidad de los frijoles se entrelaza con la firmeza de los garbanzos y las habichuelas, mientras los pepinos aportan un toque refrescante y los pimientos añaden un matiz picante. La presencia fragante del cilantro completa esta ensalada, creando una experiencia culinaria que celebra la riqueza y variedad de los ingredientes en cada bocado.',
       image:
-        'https://images.rappi.com/products/tmp3078896812093154234684639022.png?e=webp&d=511x511&q=85',
-      price: 45607,
+        '../assets/img/ensalada_3.jpg',
+      price: 35000,
     },
     {
       id: 4,
-      name: 'Mccombo Grande Mcbacon',
+      name: 'Pasta con tocino',
       description:
-        'Elige tu mccombo™ de hamburguesa con dos carnes de res de 50gr c/u, tocineta, queso cheddar, cebolla, salsa de tomate y mostaza con papas grandes y gaseosa grande a elegir',
+        'Una deliciosa y reconfortante pasta con tocino que eleva la experiencia culinaria con una explosión de tomates de diferentes variedades. Los jugosos jitomates cherry, la dulzura del jitomate picadilly, la forma periforme del jitomate pera, la intensidad del tomate datterino, la clásica robustez del jitomate bola y la pequeña joya del tomate ciliegino se entrelazan en una sinfonía de colores, sabores y texturas. El tocino, con su sabor ahumado y crujiente, complementa a la perfección la frescura y la acidez de esta mezcla de tomates, creando un plato que cautiva los sentidos con cada bocado. Un festín que celebra la diversidad de los tomates y la indulgencia del tocino en cada exquisita porción de pasta.',
       image:
-        'https://images.rappi.com/products/tmp3078896812093154234684639022.png?e=webp&d=511x511&q=85',
-      price: 45607,
-    },
-    {
-      id: 4,
-      name: 'Mccombo Grande Mcbacon',
-      description:
-        'Elige tu mccombo™ de hamburguesa con dos carnes de res de 50gr c/u, tocineta, queso cheddar, cebolla, salsa de tomate y mostaza con papas grandes y gaseosa grande a elegir',
-      image:
-        'https://images.rappi.com/products/tmp3078896812093154234684639022.png?e=webp&d=511x511&q=85',
-      price: 45607,
+        '../assets/img/pasta_1.jpg',
+      price: 32000,
     },
     {
       id: 5,
-      name: 'Mccombo Grande Mcbacon',
+      name: 'Pasta con salmón',
       description:
-        'Elige tu mccombo™ de hamburguesa con dos carnes de res de 50gr c/u, tocineta, queso cheddar, cebolla, salsa de tomate y mostaza con papas grandes y gaseosa grande a elegir',
+        'Una exquisita experiencia culinaria se despliega con nuestra pasta con salmón, donde la riqueza del salmón se encuentra con la sofisticación de un sofrito compuesto por ajo dorado y aceite de oliva virgen. La frescura del eneldo se suma a esta sinfonía de sabores, aportando una nota herbácea que eleva cada bocado. Un toque final de pimienta negra molida añade un sutil pizarrón de calidez, creando un plato que fusiona ingredientes de alta calidad para deleitar los sentidos con una experiencia gastronómica inolvidable.',
       image:
-        'https://images.rappi.com/products/tmp3078896812093154234684639022.png?e=webp&d=511x511&q=85',
-      price: 45607,
+        '../assets/img/pasta_2.jpeg',
+      price: 18000,
     },
+    {
+      id: 6,
+      name: 'Pasta con carne',
+      description:
+        'Sumérgete en una deliciosa travesía gastronómica con nuestra pasta con carne, donde la sazón auténtica cobra vida. La intensidad de la carne se equilibra con una mezcla aromática de tomate fresco y cebolla, mientras las hojas de laurel aportan su esencia única. El toque de orégano añade una nota herbácea que eleva la complejidad de los sabores. La pimienta negra molida completa esta obra maestra culinaria, proporcionando un toque final de calidez. Una experiencia sensorial que fusiona la tradición con la innovación en cada bocado, transportándote a un deleite de sabores que no querrás olvidar.',
+      image:
+        '../assets/img/pasta_3.jpg',
+      price: 10000,
+    },
+    {
+      id: 7,
+      name: 'Pizza de champiñones',
+      description:
+        'Sumérgete en una experiencia culinaria extraordinaria con nuestra pizza de champiñones, una creación que eleva los sabores clásicos a nuevas alturas. La base de salsa de tomate, rica y sabrosa, sirve como lienzo para una combinación sublime de champiñones frescos, salchichas jugosas y cebollas caramelizadas. Cada bocado es una sinfonía de texturas y sabores, desde la suavidad de los champiñones hasta la intensidad ahumada de las salchichas y el toque dulce de las cebollas. Esta pizza es una obra maestra gastronómica que celebra la armonía perfecta entre ingredientes frescos y la creatividad en cada rebanada.',
+      image:
+        '../assets/img/pizza_1.jpg',
+      price: 42800,
+    },
+    {
+      id: 8,
+      name: 'Pizza hawaiana',
+      description:
+        'Embárcate en un viaje gastronómico tropical con nuestra irresistible pizza hawaiana, donde los sabores se entrelazan para ofrecerte una experiencia única. La base de nuestra pizza está generosamente untada con aceite de oliva y salsa de tomate, creando la plataforma perfecta para la combinación clásica de jamón jugoso, piña fresca y queso mozzarella derretido. Cada bocado es una explosión de sabores, desde la salinidad del jamón hasta la dulzura tropical de la piña, todo armonizado por la cremosidad del queso mozzarella. Esta creación culinaria es un viaje sensorial que transporta tu paladar a la exuberancia de la cocina hawaiana, una experiencia que deleitará tus sentidos en cada rebanada.',
+      image:
+        '../assets/img/pizza_2.jpg',
+      price: 42800,
+    },
+    {
+      id: 9,
+      name: 'Pizza de jamón',
+      description:
+        'Embárcate en un festín de sabores clásicos con nuestra pizza de jamón, donde la simplicidad se transforma en una experiencia culinaria extraordinaria. Una base perfectamente equilibrada de tomate y queso mozzarella proporciona el lienzo ideal para un toque de frescura y cremosidad. El orégano y la pimienta negra añaden una explosión de aromas y sabores, mientras que el jamón York, con su exquisitez salada y textura suave, se convierte en la estrella principal que completa esta deliciosa obra maestra. Cada rebanada es un deleite para el paladar, ofreciendo la combinación perfecta de ingredientes de alta calidad en cada bocado. Una pizza de jamón que eleva la simpleza a la perfección gastronómica.',
+      image:
+        '../assets/img/pizza_3.jpg',
+      price: 42800,
+    },
+    {
+      id: 10,
+      name: 'Postress de profiteroles',
+      description:
+        'Embárcate en un viaje decadente hacia el placer culinario con nuestros exquisitos profiteroles, una obra maestra de la repostería que despierta los sentidos. Cada bocado es una fusión celestial de suaves bolitas de masa rellenas, enriquecidas con un relleno de crema, presentadas en una cascada de chocolate decadente. La preparación meticulosa de la masa con una mezcla armoniosa de leche y mantequilla crea una textura aireada que se derrite en la boca. La esencia de vainilla agrega una nota fragante y reconfortante, mientras que el toque de maíz aporta una sutileza única. Estos profiteroles no son simplemente un postre, son una experiencia gastronómica indulgente que encantará a los amantes del chocolate y la alta repostería. Sumérgete en la opulencia de nuestros profiteroles y descubre un mundo de placeres culinarios refinados.',
+      image:
+        '../assets/img/postres1.webp',
+      price: 42800,
+    },
+    {
+      id: 11,
+      name: 'Postres con fresas',
+      description:
+        'Adéntrate en una experiencia dulce y vibrante con nuestros irresistibles postres con fresas, donde la frescura de las fresas se combina magistralmente con una sinfonía de sabores exquisitos. Cada bocado es una explosión de frescura y dulzura, realzado por la chispeante presencia de jugo de limón, que despierta y equilibra los sabores. La mantequilla aporta una riqueza cremosa y la vainilla añade una nota de elegancia aromática. Para coronar esta delicia, una lluvia de azúcar glass completa la experiencia, creando una textura suave y un toque adicional de dulzura. Nuestros postres con fresas no solo satisfacen el paladar, sino que también celebran la armonía de ingredientes de alta calidad, ofreciendo una experiencia culinaria que cautivará a los amantes de la buena cocina. Sumérgete en la frescura y el encanto de estas creaciones, y deja que cada bocado sea un deleite para tus sentidos.',
+      image:
+        '../assets/img/postres2.webp',
+      price: 42800,
+    },
+    {
+      id: 12,
+      name: 'Postres de banana',
+      description:
+        'Embárcate en un viaje culinario encantador con nuestros irresistibles postres de banana, donde la dulzura natural de las bananas se encuentra con una sinfonía de ingredientes lujosos para crear una experiencia de sabor verdaderamente única. La esencia de vainilla añade una nota cálida y fragante, mientras que la mantequilla aporta una riqueza cremosa que se combina armoniosamente con la suavidad de la crema de leche. La presencia del queso crema agrega una textura aterciopelada y un toque de tangibilidad que eleva cada bocado a la perfección. Pero la magia verdadera se desata con la inclusión de chocolate blanco, que se derrite delicadamente, infundiendo cada porción con una elegancia decadente. Todo esto se remata con una capa de crema de leche para una experiencia indulgente que deleitará incluso a los paladares más exigentes. Estos postres de banana no son simplemente deliciosos, son una oda a la sofisticación y la exquisitez culinaria. Sumérgete en el placer de sabores armoniosos y texturas decadentes con cada delicioso bocado.',
+      image:
+        '../assets/img/postres3.webp',
+      price: 42800,
+    },
+
   ];
   items: any[] = [];
   visiblePayment = false;
@@ -175,7 +229,9 @@ export class AppComponent implements OnInit {
   }
 
   sendOrder() {
-    this._productService.createOrder(this.shoppingCart).then((value: any) => {
+    const data = { order: this.pedidos, total: this.total };
+
+    this._productService.createOrder(data).then((value: any) => {
       console.log(value);
     });
   }
@@ -236,7 +292,8 @@ export class AppComponent implements OnInit {
 
   recibirData(event: any) {
     let data = event.data;
-    localStorage.setItem("formPayment", data);
+
+    localStorage.setItem('formPayment', JSON.stringify(data));
     this.activeIndex = event.item;
     this._productService.saveInfoPayment(data).then((response) => {
       console.log(response);
@@ -254,10 +311,16 @@ export class AppComponent implements OnInit {
         summary: 'Pedido Enviado',
         detail: 'Pedido enviado con éxito',
       });
+
+      localStorage.removeItem('formPayment');
     });
   }
 
   updateItemCurrent(event: any) {
     this.activeIndex = event;
+  }
+
+  getItemCardShopping() {
+    return this.shoppingCart.length == 0 ? 0 : this.shoppingCart.length
   }
 }

@@ -27,12 +27,15 @@ export class PaymentMethodComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+
     this.formPayment = this.formBuilder.group({
       cardholderName: ['', Validators.minLength(2)],
-      cardholderNumber: [0, Validators.required],
+      cardholderNumber: ['', Validators.required],
       date: ['', Validators.required],
-      cvv: [0, Validators.required],
+      cvv: ['', Validators.required],
     });
+
+    this.getDataLocalStores();
   }
   sendInfoPayment() {
     if (this.itemActual < 1) {
@@ -51,10 +54,6 @@ export class PaymentMethodComponent implements OnInit {
     }
   }
 
-  cargardata(){
-
-  }
-
   validateForm() {
     this.formPayment.markAllAsTouched();
     let validForm = this.formPayment.valid;
@@ -66,5 +65,18 @@ export class PaymentMethodComponent implements OnInit {
           summary: 'Campos Requerido',
           detail: 'Hay campos obligatorios',
         });
+  }
+
+  getDataLocalStores() {
+    let dataLocal = localStorage.getItem("formPayment");
+    let data = JSON.parse(dataLocal!.toString());
+
+    if(data !== undefined) {
+      this.formPayment.get('cardholderName')?.setValue(data.cardholderName);
+      this.formPayment.get('cardholderNumber')?.setValue(data.cardholderNumber);
+      this.formPayment.get('date')?.setValue(data.date);
+      this.formPayment.get('cvv')?.setValue(data.cvv)
+    }
+
   }
 }

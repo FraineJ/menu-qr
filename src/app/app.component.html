@@ -1,24 +1,43 @@
+<app-header></app-header>
+
+<div class="container-promo">
+  <div class="text-container-promo">
+    <p class="text-promo">Pide tú comida favorita</p>
+    <p>Busca tú plato favorito y disfrútalo con las personas que más quieres</p>
+    <p-button label="Danger" styleClass="p-button-rounded p-button-danger"></p-button>
+  </div>
+
+  <div class="imagen-promo">
+    <img src="../assets/img/comida.png" alt="">
+  </div>
+</div>
+
+
 <div class="container">
-  <div *ngFor="let product of menus">
-    <div class="container-product">
-      <div class="product-image" (click)="viewDetailProduct(product)">
-        <img [src]="product.image" />
-      </div>
-      <div class="product-info">
-        <h1>{{ product.name }}</h1>
-        <p class="product-description">
-          {{ product.description | truncateText : 120 }}
-        </p>
-      </div>
-      <div class="container-product-price">
-        <div class="product-price">
-          <label>${{ product.price }}</label>
+  <h2 style="padding: 20px 5px; ">Nuestros Platos</h2>
+  <div class="container-product">
+
+    <div *ngFor="let product of menus">
+      <div class="product">
+        <div class="product-image" (click)="viewDetailProduct(product)">
+          <img [src]="product.image" />
         </div>
-        <div class="product-car-shoping">
-          <i
-            class="fa-solid fa-cart-plus"
-            (click)="addShoppingCart(product)"
-          ></i>
+        <div class="product-info">
+          <h1>{{ product.name }}</h1>
+          <p class="product-description">
+            {{ product.description | truncateText : 120 }}
+          </p>
+        </div>
+        <div class="container-product-price">
+          <div class="product-price">
+            <label>${{ product.price | number : "0.2-4" }}</label>
+          </div>
+          <div class="product-car-shoping">
+            <i
+              class="fa-solid fa-cart-plus"
+              (click)="addShoppingCart(product)"
+            ></i>
+          </div>
         </div>
       </div>
     </div>
@@ -44,7 +63,7 @@
       <div *ngFor="let productItems of shoppingCart">
         <div class="card-shopping-cart">
           <div class="product-shopping mr-2">
-            <img [src]="productItems.image" />
+            <img src="{{productItems.image}}" />
           </div>
           <div class="shopping-name">
             <p>{{ productItems.name | truncateText : 15 }}</p>
@@ -98,7 +117,7 @@
       <button
         pButton
         pRipple
-        label="Realizar pedido $ {{ total }}"
+        label="Pagar $ {{ total | number : '0.2-4' }}"
         class="p-button-success"
         (click)="payment()"
       ></button>
@@ -109,9 +128,12 @@
 <p-toast></p-toast>
 
 <div class="container-buttun-showpping-cart">
+  <div  class="badge-position" pBadge value="{{getItemCardShopping()}}" class="pt-0">
+
+  </div>
   <p-button
     icon="pi pi-cart-plus"
-    styleClass="p-button-rounded p-button-secondary"
+    styleClass="p-button-rounded color-orange"
     (click)="showShoppingCart()"
   ></p-button>
 </div>
@@ -131,7 +153,7 @@
       [model]="itemsStep"
       [(activeIndex)]="activeIndex"
       class="customstepper"
-      [readonly]="false"
+      [readonly]="true"
     ></p-steps>
   </div>
 
@@ -152,3 +174,4 @@
 </p-dialog>
 <!--Fin pasarela de pago-->
 
+<app-footer></app-footer>

@@ -17,7 +17,7 @@ export const environment = {
   },
   url_site: 'https://menu-qr-taupe.vercel.app/',
   title: 'Default Environment',
-  nameCollection: 'product',
+  nameCollection: 'orden',
   nameCollectionPayment: 'payment',
   nameCollectionUser: 'users',
 };
